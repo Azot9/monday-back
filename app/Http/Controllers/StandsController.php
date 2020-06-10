@@ -25,4 +25,11 @@ class StandsController extends Controller
         $stand->delete();
         return $this->getStands($request);
     }
+    public function updateStandLink(Request $request) {
+        $stand = Stand::find($request->id);
+        $stand->link = $request->link;
+        $stand->save();
+        return $this->getStands($request);
+        // return  $request->link;
+    }
 }

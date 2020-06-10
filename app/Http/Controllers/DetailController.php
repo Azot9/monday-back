@@ -20,6 +20,7 @@ class DetailController extends Controller
         $detail->working_status = $request->working_status === 'true' ? 1 : 0;
         $detail->stand_id = $request->stand_id ?: null;
         $detail->delivery_id = $request->delivery_id;
+        $detail->laboratory_id = $request->laboratory_id;
         $detail->position_x = 0;
         $detail->position_y = 0;
         $detail->save();
@@ -29,6 +30,5 @@ class DetailController extends Controller
         $laboratory = Detail::find($request->id);
         $laboratory->delete();
         return $this->getDetails($request);
-        // return $request->id;
     }
 }
